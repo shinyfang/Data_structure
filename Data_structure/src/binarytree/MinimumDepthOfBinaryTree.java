@@ -1,7 +1,10 @@
 package binarytree;
 
 import binarytree.SameTree.TreeNode;
-
+//树的最小深度
+//递归
+//每次到叶节点比较是否小于当前最小深度
+//注意，遍历到根节点的时候直接置为深度
 public class MinimumDepthOfBinaryTree {
 	public int min = 0;
 	public void dfsDepth(TreeNode root, int len) {

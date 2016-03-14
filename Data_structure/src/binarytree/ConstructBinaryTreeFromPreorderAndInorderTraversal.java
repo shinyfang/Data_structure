@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 import binarytree.SameTree.TreeNode;
 
-
+//前序中序重建二叉树
+//前序中第一个元素是根；对应在中序中这个数会把左右子树分开
+//递归；每次找到这个元素，递归它的左右子树
 public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
 	public class TreeNode {
 		int val;

@@ -1,7 +1,9 @@
 package binarytree;
 
-import binarytree.BinaryTreeLevelOrderTraversal.TreeNode;
-
+//二叉搜索树按后序遍历转换为双向链表
+//要注意的是java中的形参，相当于复制了一份副本，在函数里修改他的指向不能回传
+//递归；用一个全局变量去记录已经构造的双向链表的尾节点，然后当前节点要和尾节点连接起来；
+//此时更新尾节点=当前节点；递归右子树
 public class ConvertNode {
 	public static class TreeNode{
 		TreeNode left;
@@ -13,25 +15,18 @@ public class ConvertNode {
 			value = data;
 		}
 	}
-	public void coverNode(TreeNode root, TreeNode lastNode) {
-		TreeNode pNode = root;
-		if (pNode.left != null)
-			coverNode(pNode.left, lastNode);
-		pNode.left = lastNode;//当前节点的左子树为链表中的最后一个元素
-		if (lastNode != null)
-			lastNode.right = pNode;//链表的最后一个元素的右子树指向当前节点
-		lastNode = pNode;
-		if (pNode.right != null)
-			coverNode(pNode.right, lastNode);
-	}
-	public TreeNode conver(TreeNode root) {
+	public TreeNode lastNode;
+	public void conver(TreeNode root) {
 		if (root == null)
-			return null;
-		TreeNode lastNode = null;
-		coverNode(root,lastNode);//lastNode指向的是链表中最后一个元素
-		while (lastNode != null && lastNode.left != null)
-			lastNode = lastNode.left;
-		return lastNode;
+			return;
+		if (root.left != null)
+			conver(root.left);
+		root.left = lastNode;
+		if (lastNode != null)
+			lastNode.right = root;
+		lastNode = root;
+		if (root.right != null)
+			conver(root.right);
 	}
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
@@ -43,10 +38,12 @@ public class ConvertNode {
 		root.right.left = new TreeNode(12);
 		root.right.right = new TreeNode(16);
 		ConvertNode s = new ConvertNode();
-		TreeNode reNode = s.conver(root);
-		while (reNode != null){
-			System.out.print(reNode.value+" ");
-			reNode = reNode.right;
+		s.conver(root);
+		TreeNode pNode = s.lastNode;
+		while (pNode != null && pNode.left != null){
+			System.out.println(pNode.value);
+			pNode = pNode.left;
 		}
+		
 	}
 }

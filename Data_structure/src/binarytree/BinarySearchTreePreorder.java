@@ -2,6 +2,8 @@ package binarytree;
 
 import binarytree.BinaryTreeLevelOrderTraversal.TreeNode;
 //判断一个数组是不是二叉搜索树的后序遍历
+//二叉搜索树的后序遍历，最后一个节点是根节点，左子树全部都小于根节点，右子树全部都大于根节点
+//先找出左子树的范围，再确认右子树是否符合大于根节点的值的条件
 public class BinarySearchTreePreorder {
 	public boolean isPre(int[] nums, int begin, int end) {
 		if (begin == end)

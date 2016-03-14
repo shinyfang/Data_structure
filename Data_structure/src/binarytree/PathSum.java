@@ -2,6 +2,8 @@ package binarytree;
 
 import binarytree.SameTree.TreeNode;
 //二叉树中是否存在和为某值的路径
+//递归
+//记录当前的和；如果遍历到叶节点判断是否与sum相等
 public class PathSum {
 	public boolean pathdfs(TreeNode root, int res, int sum) {
 		res += root.val;

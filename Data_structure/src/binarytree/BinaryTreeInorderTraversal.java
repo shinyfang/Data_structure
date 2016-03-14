@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Stack;
 import binarytree.SameTree.TreeNode;
 //中序遍历
+//用栈，不断压入左子树，弹出节点时压入右子树；
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> re = new ArrayList<Integer>();

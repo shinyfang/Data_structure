@@ -1,7 +1,9 @@
 package binarytree;
 
 import binarytree.SameTree.TreeNode;
-
+//树的最大深度
+//递归
+//用全局变量记住最大深度，每次比较到叶子节点的时候判断当前深度是否大于最大深度
 public class MaximumDepthOfBinaryTree {
 	public int max = 0;
 	public void dfsDepth(TreeNode root, int len) {

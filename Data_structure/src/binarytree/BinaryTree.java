@@ -16,7 +16,7 @@ public class BinaryTree {
 		}
 	}
 	private static List<Node> nodeList = null;
-	public void createTree(int[] array) {
+	public void createTree(int[] array) {//传入一个数组，再生成二叉树
 		nodeList = new LinkedList<>();
 		for (int i = 0; i < array.length; i ++){//先把数组转换成Node节点
 			nodeList.add(new Node(array[i]));

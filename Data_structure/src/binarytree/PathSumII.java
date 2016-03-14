@@ -6,6 +6,7 @@ import java.util.List;
 
 import binarytree.SameTree.TreeNode;
 //二叉树中和为某值的所有路径
+//多用一个List去记录
 public class PathSumII {
 	public void pathDfs(List<List<Integer>> re, TreeNode root, int sum, int count, List<Integer> cur) {
 		cur.add(root.val);

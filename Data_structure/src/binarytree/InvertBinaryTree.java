@@ -1,7 +1,9 @@
 package binarytree;
 
 import binarytree.SameTree.TreeNode;
-
+//二叉树的镜像
+//递归
+//不断的交换左右节点
 public class InvertBinaryTree {
     public TreeNode invertTree(TreeNode root) {
         if (root == null || (root.left == null && root.right == null))

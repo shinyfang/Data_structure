@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 //层序遍历
-
+//用队列存储每一层的节点；每一层节点弹出的时候把它的左右子树也加到队列中
 public class BinaryTreeLevelOrderTraversal {
 	public class TreeNode {
 		int val;
